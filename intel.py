@@ -1,6 +1,6 @@
 import requests
 
-API_KEY = "4e937b35653c8b9c5c5f9901e534a69982d4ae71860aebf039d3454319526c64c33b375e592fa110"
+API_KEY = "Enter Your API key"
 
 def check_ip(ip):
 
