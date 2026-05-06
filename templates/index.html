@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+
+    <title>Threat Intelligence Platform</title>
+
+    <style>
+
+        body{
+            background:#0f172a;
+            color:white;
+            font-family:Arial;
+            padding:40px;
+        }
+
+        .box{
+            background:#1e293b;
+            padding:30px;
+            border-radius:10px;
+            width:600px;
+            margin:auto;
+        }
+
+        input{
+            padding:12px;
+            width:300px;
+            border:none;
+        }
+
+        button{
+            padding:12px 20px;
+            border:none;
+            cursor:pointer;
+            font-weight:bold;
+        }
+
+        .result{
+            margin-top:30px;
+            background:black;
+            padding:20px;
+            border-radius:10px;
+        }
+
+    </style>
+
+</head>
+
+<body>
+
+<div class="box">
+
+    <h1>Cyber Threat Intelligence Dashboard</h1>
+
+    <form method="POST">
+
+        <input type="text"
+               name="ip"
+               placeholder="Enter IP Address">
+
+        <button type="submit">
+            Analyze
+        </button>
+
+    </form>
+
+    {% if result %}
+
+    <div class="result">
+
+        <h2>Threat Analysis</h2>
+
+        <p><b>IP Address:</b>
+        {{ result.data.ipAddress }}</p>
+
+        <p><b>ISP:</b>
+        {{ result.data.isp }}</p>
+
+        <p><b>Domain:</b>
+        {{ result.data.domain }}</p>
+
+        <p><b>Country:</b>
+        {{ result.data.countryCode }}</p>
+
+        <p><b>Threat Score:</b>
+        {{ result.data.abuseConfidenceScore }}</p>
+
+        <p><b>Total Reports:</b>
+        {{ result.data.totalReports }}</p>
+
+        <p><b>Tor Exit Node:</b>
+        {{ result.data.isTor }}</p>
+
+    </div>
+
+    {% endif %}
+
+</div>
+
+</body>
+</html>
